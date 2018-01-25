@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fluentd
+  labels:
+    component: fluentd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: fluentd
+  template:
+    metadata:
+      labels:
+        component: fluentd
+    spec:
+      containers:
+      - env:
+        - name: ELASTICSEARCH_IP
+          value: "10.96.12.13"
+        image: fluentd:v5
+        name: fluentd
+        ports:
+        - containerPort: 24224
+          name: tcp
+          protocol: TCP
+        - containerPort: 24224
+          name: udp
+          protocol: UDP
+        resources: {}

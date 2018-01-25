@@ -12,4 +12,5 @@ spec:
   ports:
   - name: http
     port: 9200
+  clusterIP: "10.96.12.13"
 #type: LoadBalancer

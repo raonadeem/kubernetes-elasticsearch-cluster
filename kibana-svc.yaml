@@ -8,6 +8,9 @@ spec:
   selector:
     component: kibana
   ports:
-  - name: http
-    port: 80
-    targetPort: http
+    -
+      nodePort: 30560
+      port: 80
+      protocol: TCP
+      targetPort: http
+  type: NodePort
