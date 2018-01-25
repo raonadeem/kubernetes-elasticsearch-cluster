@@ -5,7 +5,7 @@ metadata:
   labels:
     component: fluentd
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       component: fluentd
@@ -18,7 +18,7 @@ spec:
       - env:
         - name: ELASTICSEARCH_IP
           value: "10.96.12.13"
-        image: fluentd:v5
+        image: raonadeem/fluentd:v1.1
         name: fluentd
         ports:
         - containerPort: 24224
